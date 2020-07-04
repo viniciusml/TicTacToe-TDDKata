@@ -8,9 +8,19 @@
 
 import XCTest
 
-class TicTacToeTests: XCTestCase {
-
-    func test() {
-        
-    }
-}
+//class Game {
+//
+//    let board: Board
+//
+//    init(board: Board) {
+//        self.board = board
+//    }
+//}
+//
+//class TicTacToeTests: XCTestCase {
+//
+//    func test_game_startsWithClearBoard() {
+//        let board = Board()
+//        let game = Game(board: board)
+//    }
+//}

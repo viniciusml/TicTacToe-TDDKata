@@ -27,6 +27,12 @@ class BoardTests: XCTestCase {
 
     func test_init_boardHasAllSpotsAvailable() {
         let sut = Board()
-        XCTAssertEqual(sut.spots, [0, 0, 0, 0, 0, 0, 0, 0, 0])
+        XCTAssertTrue(sut.hasAllSpotsAvailable)
+    }
+}
+
+extension Board {
+    var hasAllSpotsAvailable: Bool {
+        spots.allSatisfy { $0 == 0 }
     }
 }
