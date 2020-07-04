@@ -26,6 +26,11 @@ class Game {
     func start() {
         isActive = true
     }
+
+    func stop() {
+        isActive = false
+        board.reset()
+    }
 }
 
 class GameTests: XCTestCase {
@@ -50,6 +55,17 @@ class GameTests: XCTestCase {
         sut.start()
 
         XCTAssertTrue(sut.isActive)
+    }
+
+    func test_stop_setsGameToInactiveInitialState() {
+        let (sut, _) = makeSUT()
+
+        sut.start()
+        XCTAssertTrue(sut.isActive)
+
+        sut.stop()
+        XCTAssertFalse(sut.isActive)
+        XCTAssertTrue(sut.board.hasAllSpotsAvailable)
     }
 
     // MARK: - Helpers
