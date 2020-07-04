@@ -26,18 +26,24 @@ class Game {
 class GameTests: XCTestCase {
 
     func test_init_isNotActive() {
-        let board = Board()
-        let sut = Game(board: board)
+        let (sut, _) = makeSUT()
 
         XCTAssertFalse(sut.isActive)
     }
 
     func test_start_setsGameToActive() {
-        let board = Board()
-        let sut = Game(board: board)
+        let (sut, _) = makeSUT()
 
         sut.start()
 
         XCTAssertTrue(sut.isActive)
+    }
+
+    // MARK: - Helpers
+
+    private func makeSUT() -> (sut: Game, board: Board) {
+        let board = Board()
+        let sut = Game(board: board)
+        return (sut, board)
     }
 }
