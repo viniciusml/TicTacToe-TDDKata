@@ -40,14 +40,21 @@ public class Board {
 
     private func findWinner() {
         for combination in winningCombinations {
-            if spots[combination[0]] != .none && spots[combination[0]] == spots[combination[1]] && spots[combination[1]] == spots[combination[2]] {
-
-                if spots[combination[0]] == .cross {
-                    winnerFound?(.cross)
-                } else {
-                    winnerFound?(.nought)
-                }
+            if isSequence(in: combination) {
+                
+                let winningOption: SpotOption = isSequenceOfCrosses(in: combination) ? .cross : .nought
+                winnerFound?(winningOption)
             }
         }
+    }
+
+    private func isSequence(in combination: [Int]) -> Bool {
+        spots[combination[0]] != .none &&
+        spots[combination[0]] == spots[combination[1]] &&
+        spots[combination[1]] == spots[combination[2]]
+    }
+
+    private func isSequenceOfCrosses(in combination: [Int]) -> Bool {
+        spots[combination[0]] == .cross
     }
 }
