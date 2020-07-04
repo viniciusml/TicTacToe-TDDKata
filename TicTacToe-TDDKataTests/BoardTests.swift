@@ -49,25 +49,6 @@ class BoardTests: XCTestCase {
         sut.reset()
         XCTAssertTrue(sut.hasAllSpotsAvailable)
     }
-
-    func test_findWinner_registersWinningMoveCorrectly() {
-        let exp = expectation(description: "wait for game completion")
-        var winningOption: SpotOption?
-        
-        let sut = Board { option in
-            winningOption = option
-            exp.fulfill()
-        }
-
-        sut.receive(.cross, at: 4)
-        sut.receive(.nought, at: 3)
-        sut.receive(.cross, at: 2)
-        sut.receive(.nought, at: 5)
-        sut.receive(.cross, at: 6)
-
-        wait(for: [exp], timeout: 0.1)
-        XCTAssertEqual(winningOption, .cross)
-    }
 }
 
 extension Board {

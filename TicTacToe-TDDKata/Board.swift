@@ -11,7 +11,8 @@ import Foundation
 public class Board {
 
     private(set) public var spots: [SpotOption]
-    public let winnerFound: ((SpotOption) -> Void)?
+
+    public weak var delegate: WinnerDelegate?
 
     private let winningCombinations = [
         [1, 2, 3],
@@ -23,9 +24,8 @@ public class Board {
         [0, 4, 8],
         [2, 4, 6]]
 
-    public init(winnerFound: ((SpotOption) -> Void)? = nil) {
+    public init() {
         spots = [SpotOption](repeating: .none, count: 9)
-        self.winnerFound = winnerFound
     }
 
     public func receive(_ input: SpotOption, at index: Int) {
@@ -43,7 +43,7 @@ public class Board {
             if isSequence(in: combination) {
                 
                 let winningOption: SpotOption = isSequenceOfCrosses(in: combination) ? .cross : .nought
-                winnerFound?(winningOption)
+                delegate?.didFindWinner(with: winningOption)
             }
         }
     }

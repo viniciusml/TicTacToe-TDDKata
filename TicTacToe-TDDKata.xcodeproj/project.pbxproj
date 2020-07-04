@@ -14,6 +14,8 @@
 		8F11153924B0A49000AAB5A4 /* GameTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F11153824B0A49000AAB5A4 /* GameTests.swift */; };
 		8F11153B24B0B2F600AAB5A4 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F11153A24B0B2F600AAB5A4 /* Player.swift */; };
 		8F11153D24B0B31C00AAB5A4 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F11153C24B0B31C00AAB5A4 /* Game.swift */; };
+		8F11154124B0C0BA00AAB5A4 /* GameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F11154024B0C0BA00AAB5A4 /* GameState.swift */; };
+		8F11154324B0C3B200AAB5A4 /* WinnerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F11154224B0C3B200AAB5A4 /* WinnerDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,6 +39,8 @@
 		8F11153824B0A49000AAB5A4 /* GameTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameTests.swift; sourceTree = "<group>"; };
 		8F11153A24B0B2F600AAB5A4 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		8F11153C24B0B31C00AAB5A4 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
+		8F11154024B0C0BA00AAB5A4 /* GameState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameState.swift; sourceTree = "<group>"; };
+		8F11154224B0C3B200AAB5A4 /* WinnerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WinnerDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +88,8 @@
 				8F11153624B0A42100AAB5A4 /* SpotOption.swift */,
 				8F11153A24B0B2F600AAB5A4 /* Player.swift */,
 				8F11153C24B0B31C00AAB5A4 /* Game.swift */,
+				8F11154024B0C0BA00AAB5A4 /* GameState.swift */,
+				8F11154224B0C3B200AAB5A4 /* WinnerDelegate.swift */,
 			);
 			path = "TicTacToe-TDDKata";
 			sourceTree = "<group>";
@@ -209,8 +215,10 @@
 			files = (
 				8F11153724B0A42100AAB5A4 /* SpotOption.swift in Sources */,
 				8F11153B24B0B2F600AAB5A4 /* Player.swift in Sources */,
+				8F11154124B0C0BA00AAB5A4 /* GameState.swift in Sources */,
 				8F11153524B0A40200AAB5A4 /* Board.swift in Sources */,
 				8F11153D24B0B31C00AAB5A4 /* Game.swift in Sources */,
+				8F11154324B0C3B200AAB5A4 /* WinnerDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
