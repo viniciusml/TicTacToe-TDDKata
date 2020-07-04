@@ -8,16 +8,22 @@
 
 import XCTest
 
+enum SpotOption {
+    case nought
+    case cross
+    case none
+}
+
 class Board {
 
-    private(set) var spots: [Int]
+    private(set) var spots: [SpotOption]
 
     init() {
-        spots = [0, 0, 0, 0, 0, 0, 0, 0, 0]
+        spots = [SpotOption](repeating: .none, count: 9)
     }
 
-    func receive(_ input: Int, at index: Int) {
-        guard spots[index] == 0 else { return }
+    func receive(_ input: SpotOption, at index: Int) {
+        guard spots[index] == .none else { return }
         spots[index] = input
     }
 }
@@ -37,25 +43,25 @@ class BoardTests: XCTestCase {
     func test_board_acceptsGameInputOnAvailableSpots() {
         let sut = Board()
 
-        sut.receive(1, at: 3)
+        sut.receive(.cross, at: 3)
 
         XCTAssertFalse(sut.hasAllSpotsAvailable)
-        XCTAssertEqual(sut.spots[3], 1)
+        XCTAssertEqual(sut.spots[3], .cross)
     }
 
     func test_board_doesNotAcceptGameInputWhenSpotIsNotAvailable() {
         let sut = Board()
 
-        sut.receive(1, at: 2)
-        XCTAssertEqual(sut.spots[2], 1)
+        sut.receive(.cross, at: 2)
+        XCTAssertEqual(sut.spots[2], .cross)
 
-        sut.receive(2, at: 2)
-        XCTAssertEqual(sut.spots[2], 1)
+        sut.receive(.nought, at: 2)
+        XCTAssertEqual(sut.spots[2], .cross)
     }
 }
 
 extension Board {
     var hasAllSpotsAvailable: Bool {
-        spots.allSatisfy { $0 == 0 }
+        spots.allSatisfy { $0 == .none }
     }
 }
