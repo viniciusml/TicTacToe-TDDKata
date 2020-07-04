@@ -11,17 +11,43 @@ import Foundation
 public class Board {
 
     private(set) public var spots: [SpotOption]
+    public let winnerFound: ((SpotOption) -> Void)?
 
-    public init() {
+    private let winningCombinations = [
+        [1, 2, 3],
+        [3, 4, 5],
+        [6, 7, 8],
+        [0, 3, 6],
+        [1, 4, 7],
+        [2, 5, 8],
+        [0, 4, 8],
+        [2, 4, 6]]
+
+    public init(winnerFound: ((SpotOption) -> Void)? = nil) {
         spots = [SpotOption](repeating: .none, count: 9)
+        self.winnerFound = winnerFound
     }
 
     public func receive(_ input: SpotOption, at index: Int) {
         guard spots[index] == .none else { return }
         spots[index] = input
+        findWinner()
     }
 
     public func reset() {
         spots = [SpotOption](repeating: .none, count: 9)
+    }
+
+    private func findWinner() {
+        for combination in winningCombinations {
+            if spots[combination[0]] != .none && spots[combination[0]] == spots[combination[1]] && spots[combination[1]] == spots[combination[2]] {
+
+                if spots[combination[0]] == .cross {
+                    winnerFound?(.cross)
+                } else {
+                    winnerFound?(.nought)
+                }
+            }
+        }
     }
 }
