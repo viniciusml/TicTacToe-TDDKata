@@ -80,7 +80,7 @@ class GameTests: XCTestCase {
         sut.receiveMove(at: 6)
 
         XCTAssertEqual(sut.state, .finished)
-        XCTAssertEqual(sut.winner, .cross)
+        XCTAssertEqual(sut.winner, sut.player1)
     }
 
     // MARK: - Helpers

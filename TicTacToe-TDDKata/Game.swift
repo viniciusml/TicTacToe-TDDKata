@@ -16,7 +16,7 @@ public class Game {
 
     private(set) public var currentPlayer: Player?
     private(set) public var state: GameState = .stopped
-    private(set) public var winner: SpotOption?
+    private(set) public var winner: Player?
 
     public init(board: Board) {
         self.board = board
@@ -45,6 +45,10 @@ extension Game: WinnerDelegate {
 
     public func didFindWinner(with option: SpotOption) {
         state = .finished
-        winner = option
+        registerWinner(basedOn: option)
+    }
+
+    private func registerWinner(basedOn option: SpotOption) {
+        winner = [player1, player2].filter { $0.spotOption == option }.first
     }
 }
