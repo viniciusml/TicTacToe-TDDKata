@@ -23,6 +23,7 @@ class Game {
     let board: Board
     let player1: Player
     let player2: Player
+    let currentPlayer: Player?
 
     private(set) var isActive: Bool = false
 
@@ -30,6 +31,7 @@ class Game {
         self.board = board
         self.player1 = Player(.cross)
         self.player2 = Player(.nought)
+        self.currentPlayer = player1
     }
 
     func start() {
@@ -64,6 +66,14 @@ class GameTests: XCTestCase {
         sut.start()
 
         XCTAssertTrue(sut.isActive)
+    }
+
+    func test_start_beginsWithOneCurrentPlayer() {
+        let (sut, _) = makeSUT()
+
+        sut.start()
+
+        XCTAssertNotNil(sut.currentPlayer)
     }
 
     func test_stop_setsGameToInactiveInitialState() {
