@@ -15,7 +15,8 @@ public class Game {
     public let player2: Player
 
     private(set) public var currentPlayer: Player?
-    private(set) public var isActive: Bool = false
+    private(set) public var state: GameState = .stopped
+    private(set) public var winner: SpotOption?
 
     public init(board: Board) {
         self.board = board
@@ -25,11 +26,11 @@ public class Game {
     }
 
     public func start() {
-        isActive = true
+        state = .started
     }
 
     public func stop() {
-        isActive = false
+        state = .stopped
         board.reset()
     }
 
@@ -37,5 +38,13 @@ public class Game {
         guard let player = currentPlayer else { return }
         board.receive(player.spotOption, at: index)
         currentPlayer = (currentPlayer == player1) ? player2 : player1
+    }
+}
+
+extension Game: WinnerDelegate {
+
+    public func didFindWinner(with option: SpotOption) {
+        state = .finished
+        winner = option
     }
 }

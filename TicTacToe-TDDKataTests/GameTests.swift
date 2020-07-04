@@ -14,7 +14,7 @@ class GameTests: XCTestCase {
     func test_init_isNotActive() {
         let (sut, _) = makeSUT()
 
-        XCTAssertFalse(sut.isActive)
+        XCTAssertEqual(sut.state, .stopped)
     }
 
     func test_init_playersReceiveDifferentInputOptionTypes() {
@@ -30,7 +30,7 @@ class GameTests: XCTestCase {
 
         sut.start()
 
-        XCTAssertTrue(sut.isActive)
+        XCTAssertEqual(sut.state, .started)
     }
 
     func test_start_beginsWithOneCurrentPlayer() {
@@ -59,11 +59,28 @@ class GameTests: XCTestCase {
         let (sut, _) = makeSUT()
 
         sut.start()
-        XCTAssertTrue(sut.isActive)
+        XCTAssertEqual(sut.state, .started)
 
         sut.stop()
-        XCTAssertFalse(sut.isActive)
+        XCTAssertEqual(sut.state, .stopped)
         XCTAssertTrue(sut.board.hasAllSpotsAvailable)
+    }
+
+    func test_winnerFound_setsGameToFinishedState() {
+        let board = Board()
+        let sut = Game(board: board)
+        board.delegate = sut
+
+        sut.start()
+
+        sut.receiveMove(at: 4)
+        sut.receiveMove(at: 3)
+        sut.receiveMove(at: 2)
+        sut.receiveMove(at: 5)
+        sut.receiveMove(at: 6)
+
+        XCTAssertEqual(sut.state, .finished)
+        XCTAssertEqual(sut.winner, .cross)
     }
 
     // MARK: - Helpers
