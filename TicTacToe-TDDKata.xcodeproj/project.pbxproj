@@ -10,6 +10,8 @@
 		8F11152024B09C2300AAB5A4 /* TicTacToe_TDDKata.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F11151624B09C2200AAB5A4 /* TicTacToe_TDDKata.framework */; };
 		8F11153124B09C4500AAB5A4 /* TicTacToeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F11153024B09C4500AAB5A4 /* TicTacToeTests.swift */; };
 		8F11153324B09F3200AAB5A4 /* BoardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F11153224B09F3200AAB5A4 /* BoardTests.swift */; };
+		8F11153524B0A40200AAB5A4 /* Board.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F11153424B0A40200AAB5A4 /* Board.swift */; };
+		8F11153724B0A42100AAB5A4 /* SpotOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F11153624B0A42100AAB5A4 /* SpotOption.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +31,8 @@
 		8F11152624B09C2300AAB5A4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8F11153024B09C4500AAB5A4 /* TicTacToeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicTacToeTests.swift; sourceTree = "<group>"; };
 		8F11153224B09F3200AAB5A4 /* BoardTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardTests.swift; sourceTree = "<group>"; };
+		8F11153424B0A40200AAB5A4 /* Board.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.swift; sourceTree = "<group>"; };
+		8F11153624B0A42100AAB5A4 /* SpotOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotOption.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +76,8 @@
 			isa = PBXGroup;
 			children = (
 				8F11151A24B09C2200AAB5A4 /* Info.plist */,
+				8F11153424B0A40200AAB5A4 /* Board.swift */,
+				8F11153624B0A42100AAB5A4 /* SpotOption.swift */,
 			);
 			path = "TicTacToe-TDDKata";
 			sourceTree = "<group>";
@@ -147,6 +153,7 @@
 				TargetAttributes = {
 					8F11151524B09C2200AAB5A4 = {
 						CreatedOnToolsVersion = 11.5;
+						LastSwiftMigration = 1150;
 					};
 					8F11151E24B09C2300AAB5A4 = {
 						CreatedOnToolsVersion = 11.5;
@@ -194,6 +201,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8F11153724B0A42100AAB5A4 /* SpotOption.swift in Sources */,
+				8F11153524B0A40200AAB5A4 /* Board.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -339,6 +348,7 @@
 		8F11152B24B09C2300AAB5A4 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEFINES_MODULE = YES;
@@ -356,6 +366,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.viniciusLeal.TicTacToe-TDDKata";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
@@ -363,6 +374,7 @@
 		8F11152C24B09C2300AAB5A4 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEFINES_MODULE = YES;
@@ -387,6 +399,7 @@
 		8F11152E24B09C2300AAB5A4 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 3SNY4A7B39;
@@ -405,6 +418,7 @@
 		8F11152F24B09C2300AAB5A4 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 3SNY4A7B39;
