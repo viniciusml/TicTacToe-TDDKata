@@ -17,14 +17,27 @@ class Game {
     init(board: Board) {
         self.board = board
     }
+
+    func start() {
+        isActive = true
+    }
 }
 
 class GameTests: XCTestCase {
 
-    func test_game_startsWithClearBoard() {
+    func test_init_isNotActive() {
         let board = Board()
         let sut = Game(board: board)
 
         XCTAssertFalse(sut.isActive)
+    }
+
+    func test_start_setsGameToActive() {
+        let board = Board()
+        let sut = Game(board: board)
+
+        sut.start()
+
+        XCTAssertTrue(sut.isActive)
     }
 }
