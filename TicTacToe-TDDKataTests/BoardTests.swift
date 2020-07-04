@@ -39,6 +39,16 @@ class BoardTests: XCTestCase {
         sut.receive(.nought, at: 2)
         XCTAssertEqual(sut.spots[2], .cross)
     }
+
+    func test_reset_resetsInitialState() {
+        let sut = Board()
+
+        sut.receive(.cross, at: 2)
+        XCTAssertFalse(sut.hasAllSpotsAvailable)
+
+        sut.reset()
+        XCTAssertTrue(sut.hasAllSpotsAvailable)
+    }
 }
 
 extension Board {

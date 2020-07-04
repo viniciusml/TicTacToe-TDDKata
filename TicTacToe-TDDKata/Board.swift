@@ -20,4 +20,8 @@ public class Board {
         guard spots[index] == .none else { return }
         spots[index] = input
     }
+
+    public func reset() {
+        spots = [SpotOption](repeating: .none, count: 9)
+    }
 }
