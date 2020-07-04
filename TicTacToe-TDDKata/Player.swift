@@ -8,7 +8,7 @@
 
 import Foundation
 
-public class Player: Equatable {
+public struct Player: Equatable {
 
     public let spotOption: SpotOption
 
