@@ -11,6 +11,7 @@
 		8F11153324B09F3200AAB5A4 /* BoardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F11153224B09F3200AAB5A4 /* BoardTests.swift */; };
 		8F11153524B0A40200AAB5A4 /* Board.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F11153424B0A40200AAB5A4 /* Board.swift */; };
 		8F11153724B0A42100AAB5A4 /* SpotOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F11153624B0A42100AAB5A4 /* SpotOption.swift */; };
+		8F11153924B0A49000AAB5A4 /* GameTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F11153824B0A49000AAB5A4 /* GameTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,6 +32,7 @@
 		8F11153224B09F3200AAB5A4 /* BoardTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardTests.swift; sourceTree = "<group>"; };
 		8F11153424B0A40200AAB5A4 /* Board.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.swift; sourceTree = "<group>"; };
 		8F11153624B0A42100AAB5A4 /* SpotOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotOption.swift; sourceTree = "<group>"; };
+		8F11153824B0A49000AAB5A4 /* GameTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +87,7 @@
 			children = (
 				8F11152624B09C2300AAB5A4 /* Info.plist */,
 				8F11153224B09F3200AAB5A4 /* BoardTests.swift */,
+				8F11153824B0A49000AAB5A4 /* GameTests.swift */,
 			);
 			path = "TicTacToe-TDDKataTests";
 			sourceTree = "<group>";
@@ -208,6 +211,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8F11153324B09F3200AAB5A4 /* BoardTests.swift in Sources */,
+				8F11153924B0A49000AAB5A4 /* GameTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
