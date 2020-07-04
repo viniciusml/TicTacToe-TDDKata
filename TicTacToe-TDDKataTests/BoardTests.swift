@@ -10,12 +10,15 @@ import XCTest
 
 class Board {
 
-    let spots: [Int]
+    var spots: [Int]
 
     init() {
         spots = [0, 0, 0, 0, 0, 0, 0, 0, 0]
     }
 
+    func receive(_ input: Int, at index: Int) {
+        spots[index] = input
+    }
 }
 
 class BoardTests: XCTestCase {
@@ -28,6 +31,15 @@ class BoardTests: XCTestCase {
     func test_init_boardHasAllSpotsAvailable() {
         let sut = Board()
         XCTAssertTrue(sut.hasAllSpotsAvailable)
+    }
+
+    func test_board_acceptsGameInputOnAvailableSpots() {
+        let sut = Board()
+
+        sut.receive(1, at: 3)
+
+        XCTAssertFalse(sut.hasAllSpotsAvailable)
+        XCTAssertEqual(sut.spots[3], 1)
     }
 }
 
