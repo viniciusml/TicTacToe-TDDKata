@@ -9,18 +9,27 @@
 import TicTacToe_TDDKata
 import XCTest
 
+class Player {
+
+    let spotOption: SpotOption
+
+    init(_ option: SpotOption) {
+        self.spotOption = option
+    }
+}
+
 class Game {
 
     let board: Board
-    let player1: SpotOption
-    let player2: SpotOption
+    let player1: Player
+    let player2: Player
 
     private(set) var isActive: Bool = false
 
     init(board: Board) {
         self.board = board
-        self.player1 = .cross
-        self.player2 = .nought
+        self.player1 = Player(.cross)
+        self.player2 = Player(.nought)
     }
 
     func start() {
@@ -44,9 +53,9 @@ class GameTests: XCTestCase {
     func test_init_playersReceiveDifferentInputOptionTypes() {
         let (sut, _) = makeSUT()
 
-        XCTAssertNotEqual(sut.player1, .none)
-        XCTAssertNotEqual(sut.player2, .none)
-        XCTAssertNotEqual(sut.player1, sut.player2)
+        XCTAssertNotEqual(sut.player1.spotOption, .none)
+        XCTAssertNotEqual(sut.player2.spotOption, .none)
+        XCTAssertNotEqual(sut.player1.spotOption, sut.player2.spotOption)
     }
 
     func test_start_setsGameToActive() {
