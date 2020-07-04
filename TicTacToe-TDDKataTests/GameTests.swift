@@ -9,12 +9,16 @@
 import TicTacToe_TDDKata
 import XCTest
 
-class Player {
+class Player: Equatable {
 
     let spotOption: SpotOption
 
     init(_ option: SpotOption) {
         self.spotOption = option
+    }
+
+    static func == (lhs: Player, rhs: Player) -> Bool {
+        lhs.spotOption == rhs.spotOption
     }
 }
 
@@ -23,8 +27,8 @@ class Game {
     let board: Board
     let player1: Player
     let player2: Player
-    let currentPlayer: Player?
 
+    private(set) var currentPlayer: Player?
     private(set) var isActive: Bool = false
 
     init(board: Board) {
@@ -41,6 +45,12 @@ class Game {
     func stop() {
         isActive = false
         board.reset()
+    }
+
+    func receiveMove(at index: Int) {
+        guard let player = currentPlayer else { return }
+        board.receive(player.spotOption, at: index)
+        currentPlayer = (currentPlayer == player1) ? player2 : player1
     }
 }
 
@@ -74,6 +84,20 @@ class GameTests: XCTestCase {
         sut.start()
 
         XCTAssertNotNil(sut.currentPlayer)
+    }
+
+    func test_receiveMove_storesCorrectGameMessage() {
+        let (sut, board) = makeSUT()
+        sut.start()
+
+        let firstPlayer = sut.currentPlayer
+        sut.receiveMove(at: 4)
+        XCTAssertEqual(board.spots[4], firstPlayer?.spotOption)
+
+        let secondPlayer = sut.currentPlayer
+        sut.receiveMove(at: 3)
+        XCTAssertEqual(board.spots[3], secondPlayer?.spotOption)
+        XCTAssertNotEqual(firstPlayer, secondPlayer)
     }
 
     func test_stop_setsGameToInactiveInitialState() {
